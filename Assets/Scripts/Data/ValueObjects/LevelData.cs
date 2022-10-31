@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 
-[Serializable]
-public class LevelData
+namespace Data.ValueObjects
+{
+    [Serializable]
+    public class LevelData
     {
-        public List<PoolData> poolList = new List <PoolData>();
+        public List<PoolData> PoolList = new List <PoolData>();
         
     }
-[Serializable]
+    [Serializable]
     public struct PoolData
     {
-        public sbyte requiredObjectCount;
+        public sbyte RequiredObjectCount;
     }
+}
