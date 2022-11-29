@@ -1,8 +1,14 @@
-public enum UIPanelTypes
-{
-    Start,
-    Win,
-    Fail,
-    Level
 
+namespace Enums
+{
+    public enum UIPanelTypes
+    {
+        Start,
+        Win,
+        Fail,
+        Level
+
+    }
 }
+
+
