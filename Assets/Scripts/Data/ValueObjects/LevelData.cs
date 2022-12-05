@@ -12,6 +12,6 @@ namespace Data.ValueObjects
     [Serializable]
     public struct PoolData
     {
-        public sbyte RequiredObjectCount;
+        public byte RequiredObjectCount;
     }
 }
