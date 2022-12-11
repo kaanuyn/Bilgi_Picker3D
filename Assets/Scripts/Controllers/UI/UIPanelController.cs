@@ -42,21 +42,21 @@ namespace Controllers.UI
         {
             UnSubscribeEvents();
         }
-        //[Button("OpenPanel")]
+        [Button("OpenPanel")]
         private void OnOpenPanel(UIPanelTypes type, int layerPos)
         {
             Instantiate(Resources.Load<GameObject>($"Screens/{type}Panel"), layers[layerPos]);
         }
-        //[Button("ClosePanel")]
-        private void OnClosePanel(int layerPos)
+        [Button("ClosePanel")]
+        private void OnClosePanel(int layerValue)
         {
-            if (layers[layerPos].transform.childCount > 0)
+            if (layers[layerValue].transform.childCount > 0)
             {
-                Destroy(layers[layerPos].GetChild(0).gameObject);
+                Destroy(layers[layerValue].GetChild(0).gameObject);
             }
     
         }
-    
+        [Button("OnCloseAllPanel")]
         private void OnCloseAllPanels()
         {
             foreach (var t in layers.Where(t => t.childCount > 0))

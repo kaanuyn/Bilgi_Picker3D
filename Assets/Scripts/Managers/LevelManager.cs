@@ -46,14 +46,14 @@ namespace Managers
             {
                 if (ES3.KeyExists("Level"))
                 {
-                    return ES3.Load<int>(key: "Level");
+                    return ES3.Load<int>("Level");
                 }
             }
 
             return 0;
         }
 
-        private CD_Level GetLevelData() => Resources.Load<CD_Level>(path: "Data/CD_Level");
+        private CD_Level GetLevelData() => Resources.Load<CD_Level>("Data/CD_Level");
 
         private void Init()
         {
