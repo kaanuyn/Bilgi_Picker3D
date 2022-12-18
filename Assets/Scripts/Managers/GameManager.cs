@@ -2,8 +2,7 @@ using Enums;
 using Signals;
 using UnityEngine;
 
-namespace Managers
-{
+
     public class GameManager : MonoBehaviour
     {
         #region Self Variables
@@ -44,4 +43,3 @@ namespace Managers
             states = state;
         }
     }
-}
