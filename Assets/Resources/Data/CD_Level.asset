@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba1c45b1dbecaa4796d60a8991f1552, type: 3}
   m_Name: CD_Level
   m_EditorClassIdentifier: 
-  levels:
-  - poolList:
-    - requiredObjectCount: 0
-    - requiredObjectCount: 0
-    - requiredObjectCount: 0
+  Levels:
+  - PoolList:
+    - RequiredObjectCount: 10
+    - RequiredObjectCount: 20
+    - RequiredObjectCount: 30
+  - PoolList: []
+  - PoolList: []
