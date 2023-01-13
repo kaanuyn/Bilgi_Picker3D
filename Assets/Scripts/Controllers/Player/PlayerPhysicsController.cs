@@ -1,7 +1,13 @@
-﻿using Controllers.Pool;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using Controllers.Pool;
+using Controllers.UI;
 using DG.Tweening;
 using Managers;
 using Signals;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Controllers.Player
@@ -9,7 +15,15 @@ namespace Controllers.Player
     public class PlayerPhysicsController : MonoBehaviour
     {
         #region Self Variables
+        
+        #region Public Variables
 
+        public TextMeshPro gemtext;
+        public List<GameObject> RewardInTrigger;
+        public int gemamount;
+
+        #endregion
+        
         #region Serialized Variables
 
         [SerializeField] private PlayerManager manager;
@@ -51,7 +65,24 @@ namespace Controllers.Player
 
             if (other.CompareTag("MiniGame"))
             {
-                //Write Mini Game Conditions
+                CoreGameSignals.Instance.onMinigameAreaEntered?.Invoke();
+            }
+
+            if (other.CompareTag("Gem"))
+            {
+                RewardInTrigger.Add(other.gameObject);
+                gemamount += int.Parse(other.gameObject.name);
+                Debug.Log("gems:" + gemamount);
+            }
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.transform.tag == "Gem")
+            {
+                RewardInTrigger.Remove(other.gameObject);
+                gemamount -= int.Parse(other.gameObject.name);
+
+
             }
         }
 
@@ -66,5 +97,12 @@ namespace Controllers.Player
         internal void OnReset()
         {
         }
+
+        internal void UpdateGem()
+        {
+            UIManager.Instance.RewardText.text = gemamount.ToString();
+        }
+
     }
+
 }

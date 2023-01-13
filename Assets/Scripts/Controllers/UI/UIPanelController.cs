@@ -1,15 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
+using Controllers.Player;
 using Enums;
 using Signals;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using TMPro;
 
 namespace Controllers.UI
 {
     public class UIPanelController : MonoBehaviour
     {
         #region Self Variables
+
+        #region Public Variables
+
+        #endregion
     
         #region Serialized Variables
     

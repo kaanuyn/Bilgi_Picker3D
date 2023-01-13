@@ -1,8 +1,12 @@
-﻿using Data.ValueObjects;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Data.ValueObjects;
 using Keys;
 using Managers;
 using Sirenix.OdinInspector;
 using System;
+using Data.UnityObjects;
+using Signals;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -48,6 +52,7 @@ namespace Controllers.Player
             {
                 MovePlayer();
             }
+
             else StopPlayerHorizontaly();
 
         }
@@ -101,6 +106,22 @@ namespace Controllers.Player
             StopPlayer();
             _isReadyToMove = false;
             _isReadyToPlay = false;
+        }
+
+        internal void SpeedBoost()
+        {
+            _data.ForwardSpeed = 22;
+            _data.SidewaysSpeed = 14;
+            StartCoroutine(Timer());
+        }
+        public IEnumerator Timer()
+        {
+            yield return new WaitForSeconds(4);
+            _data.ForwardSpeed = 7;
+            _data.SidewaysSpeed = 5;
+            yield return new WaitForSeconds(1);
+            CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
+            
         }
     }
 }

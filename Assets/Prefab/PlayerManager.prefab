@@ -97,6 +97,7 @@ MonoBehaviour:
   renderer: {fileID: 5586131430939064180}
   scaleText: {fileID: 2049476880245353202}
   Confetti: {fileID: 8349876868089927220}
+  Boost: {fileID: 0}
 --- !u!1 &6504457151704078122
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d5148639434bdd808a38960065544e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemtext: {fileID: 0}
+  RewardInTrigger: []
+  gemamount: 0
   manager: {fileID: 6504457152326778907}
   collider: {fileID: 6504457151704078135}
   rigidbody: {fileID: 6504457151704078120}

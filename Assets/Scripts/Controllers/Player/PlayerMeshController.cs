@@ -1,4 +1,5 @@
-﻿using Data.ValueObjects;
+﻿
+using Data.ValueObjects;
 using DG.Tweening;
 using Managers;
 using Sirenix.OdinInspector;
@@ -17,6 +18,8 @@ namespace Controllers.Player
         [SerializeField] private new Renderer renderer;
         [SerializeField] private TextMeshPro scaleText;
         [SerializeField] private ParticleSystem Confetti;
+        [SerializeField] private ParticleSystem Boost;
+        
 
         #endregion
 
@@ -51,8 +54,16 @@ namespace Controllers.Player
             //Confetti.SetActive(true);
             //DOVirtual.DelayedCall(2, () => Confetti.SetActive(false));
         }
+
+        internal void PlayBoostParticle()
+        {
+            Boost.Play();
+
+        }
         internal void OnReset()
         {
         }
+
+
     }
 }
